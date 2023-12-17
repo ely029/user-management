@@ -1,0 +1,31 @@
+<div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+        <div class="row">
+            <span>Name:</span><input type="text" id="name" formControlName="name" class="form-control">
+            <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched">
+                Name is required
+            </div>
+        </div>
+        <div class="row">
+                    <span>Password:</span><input type="password" id="password" formControlName="password" class="form-control">
+                <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+                    Password is required
+                </div>
+        </div>
+        <div class="row">
+                <span>Email:</span><input email="true" type="email" id="email" formControlName="email" class="form-control">
+            <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+                Email is empty or your email are not valid
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" class="btn btn-success" value="Click to Register">
+        </div>
+        <div *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="row">
+            <span>Already have an account? click <a href="/">here</a> to login</span>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div *ngIf="sessionStorage.getItem('role_id') == 'CUSTOMER'">
+        <h2>Welcome to your profile Maam/Sir!</h2>
+        <span><a (click)="logout()" href="#">Logout</a></span>
+        <form [formGroup]="detailForm" (ngSubmit)="updateProfile()">
+            <div class="row">
+                <span>Name:</span><input type="text" id="name" formControlName="name" [(ngModel)]="name">
+            </div>
+            <div class="row">
+                <span>Email:</span><input type="text" email="true" id="email" formControlName="email" [(ngModel)]="email">
+            </div>
+            <div class="row" *ngIf="message">
+                {{ message }}
+            </div>
+            <div class="row">
+                <input type="submit" value="Click to Update">
+            </div>
+        </form>
+    </div>
+    <div *ngIf="sessionStorage.getItem('role_id') == 'ADMIN'">
+        <h2>Welcome Admin!</h2>
+        <span><a (click)="logout()" href="#">Logout</a></span>
+        <div *ngFor="let item of list">
+            Name: {{ item.name }}                Email: {{ item.email }} <input type="button" value="Click to Delete"/>
+        </div>
+    </div>
+</div>
