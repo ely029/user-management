@@ -2,6 +2,12 @@ Users Management
 
 This application is use to manage the users details. Also including the registration and login and updating the account of the user.
 
+Requirements:
+NodeJS 20.10
+Angular CLI 17.0.7
+Typescript 5.2.2
+
+
 Installation guide.
 
 For Database Installation
